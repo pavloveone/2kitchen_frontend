@@ -1,0 +1,18 @@
+import { create } from 'zustand';
+
+export type ViewMode = 'list' | 'grid';
+
+interface ViewModeState {
+  viewMode: ViewMode;
+  toggleViewMode: () => void;
+  setViewMode: (mode: ViewMode) => void;
+}
+
+export const useViewModeStore = create<ViewModeState>((set) => ({
+  viewMode: 'grid',
+  toggleViewMode: () =>
+    set((state) => ({
+      viewMode: state.viewMode === 'list' ? 'grid' : 'list',
+    })),
+  setViewMode: (mode) => set({ viewMode: mode }),
+}));
