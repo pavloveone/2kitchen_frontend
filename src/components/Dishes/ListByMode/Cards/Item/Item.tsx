@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Card, CardActions, CardContent, Typography, Box, Avatar } from '@mui/material';
 import { Dish } from '../../../../../interfaces';
 import { NutritionChips } from '../../../NutritionChips';
@@ -6,6 +6,7 @@ import { PriceDisplay } from '../../../PriceDisplay';
 import { useOrderStore } from '../../../../../store';
 import { AddToOrder } from '../../../../AddToOrder';
 import { RemoveFromOrder } from '../../../../RemoveFromOrder';
+import { DishModal } from '../../../../DishModal';
 
 interface ItemProps {
   dish: Dish;
@@ -23,6 +24,7 @@ const styles = {
     '&:hover': {
       borderColor: 'primary.light',
       boxShadow: 4,
+      cursor: 'pointer',
     },
   },
   contentPadding: {
@@ -70,44 +72,54 @@ const styles = {
 };
 
 export const Item: FC<ItemProps> = ({ dish }) => {
+  const [modalOpen, setModalOpen] = useState(false);
   const quantity = useOrderStore(
     (state) => state.order.find((item) => item.dish.id === dish.id)?.quantity,
   );
 
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
+
   return (
-    <Card sx={styles.card}>
-      <Box sx={styles.contentPadding}>
-        <Avatar variant="rounded" src={dish.imageUrl} sx={styles.image} />
-      </Box>
+    <>
+      <Card sx={styles.card} onClick={handleOpenModal}>
+        <Box sx={styles.contentPadding}>
+          <Avatar variant="rounded" src={dish.image} sx={styles.image} />
+        </Box>
 
-      <CardContent sx={{ ...styles.contentPadding, flexGrow: 1, pb: { xs: 0.5, sm: 1 } }}>
-        <Box sx={styles.titleWrapper}>
-          <Typography variant="h6" component="div" sx={styles.title}>
-            {dish.name}
+        <CardContent
+          sx={{ ...styles.contentPadding, flexGrow: 1, pb: { xs: 0.5, sm: 1 }, flexWrap: 'wrap' }}
+        >
+          <Box sx={styles.titleWrapper}>
+            <Typography variant="h6" component="div" sx={styles.title}>
+              {dish.name}
+            </Typography>
+            <NutritionChips dish={dish} />
+          </Box>
+
+          <Typography variant="body2" sx={styles.description}>
+            {dish.description}
           </Typography>
-          <NutritionChips dish={dish} />
-        </Box>
+        </CardContent>
 
-        <Typography variant="body2" sx={styles.description}>
-          {dish.description}
-        </Typography>
-      </CardContent>
+        <CardActions sx={{ ...styles.contentPadding, ...styles.cardActions }}>
+          <PriceDisplay price={dish.price} />
 
-      <CardActions sx={{ ...styles.contentPadding, ...styles.cardActions }}>
-        <PriceDisplay price={dish.price} />
+          <Box sx={styles.orderControls} onClick={(event) => event.stopPropagation()}>
+            {quantity ? (
+              <>
+                <RemoveFromOrder dish={dish} />
+                <Typography variant="body1" component="span">
+                  {quantity}
+                </Typography>
+              </>
+            ) : null}
+            <AddToOrder dish={dish} />
+          </Box>
+        </CardActions>
+      </Card>
 
-        <Box sx={styles.orderControls}>
-          {quantity ? (
-            <>
-              <RemoveFromOrder dish={dish} />
-              <Typography variant="body1" component="span">
-                {quantity}
-              </Typography>
-            </>
-          ) : null}
-          <AddToOrder dish={dish} />
-        </Box>
-      </CardActions>
-    </Card>
+      <DishModal dish={dish} open={modalOpen} onClose={handleCloseModal} />
+    </>
   );
 };

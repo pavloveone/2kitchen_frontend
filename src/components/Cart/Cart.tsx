@@ -24,14 +24,8 @@ export const Cart: FC<CartProps> = ({ isMobile, onCheckout }) => {
     return (
       <Box
         sx={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
           p: 2,
           bgcolor: 'background.paper',
-          boxShadow: 3,
-          zIndex: 1000,
         }}
       >
         <Button

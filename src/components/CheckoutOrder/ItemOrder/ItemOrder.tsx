@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { OrderItem } from '../../../interfaces';
 import { ListItem, Typography, Box } from '@mui/material';
 import { formatPrice } from '../../../utils';
-import { NutritionChips } from '../../Dishes/NutritionChips';
 
 interface ItemOrderProps {
   order: OrderItem;
@@ -30,7 +29,6 @@ export const ItemOrder: FC<ItemOrderProps> = ({ order }) => {
           <Typography variant="body1" fontWeight="medium">
             {dish.name}
           </Typography>
-          <NutritionChips dish={dish} />
         </Box>
         <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
           {order.quantity} × {formatPrice(dish.price)} = {formatPrice(totalPrice)}
