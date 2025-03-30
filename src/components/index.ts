@@ -6,3 +6,4 @@ export * from './Dishes';
 export * from './Loader';
 export * from './AddToOrder';
 export * from './RemoveFromOrder';
+export * from './DishModal';

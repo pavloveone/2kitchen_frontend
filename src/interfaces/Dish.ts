@@ -3,8 +3,9 @@ export type Dish = {
   name: string;
   description: string;
   price: number;
-  imageUrl?: string;
+  image: string;
   protein: number;
   fat: number;
   carbs: number;
+  calories: number;
 };
