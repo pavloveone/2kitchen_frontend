@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { ListItem, Typography, Box } from '@mui/material';
 import { AddToOrder } from '../../../../AddToOrder';
-import { Dish } from '../../../../../interfaces';
 import { NutritionChips } from '../../../NutritionChips';
 import { PriceDisplay } from '../../../PriceDisplay';
 import { useOrderStore } from '../../../../../store';
 import { RemoveFromOrder } from '../../../../RemoveFromOrder';
+import { Dish } from '../../../../../api';
 
 interface ItemProps {
   dish: Dish;

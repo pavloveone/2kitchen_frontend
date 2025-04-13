@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { IconButton } from '@mui/material';
 import { Add } from '@mui/icons-material';
 import { useOrderStore } from '../../store';
-import { Dish } from '../../interfaces';
+import { Dish } from '../../api';
 
 interface AddToOrderProps {
   dish: Dish;

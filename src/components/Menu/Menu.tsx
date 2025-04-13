@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { HeaderMenu } from './HeaderMenu';
@@ -13,11 +13,9 @@ export const Menu: FC = () => {
 
   const { viewMode } = useViewModeStore();
 
-  const handleCheckout = () => {
-    const orderId = Math.floor(Math.random() * 1000000);
-
-    navigate(`/order/${orderId}`);
-  };
+  const handleCheckout = useCallback(() => {
+    navigate(`/checkout`);
+  }, [navigate]);
 
   return (
     <Box

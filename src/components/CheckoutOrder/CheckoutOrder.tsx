@@ -1,18 +1,31 @@
-import { FC } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { FC, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Typography, Box, IconButton, List, Divider, Button } from '@mui/material';
 import { ArrowBackIos } from '@mui/icons-material';
 import { formatPrice } from '../../utils';
 import { useOrderStore } from '../../store';
 import { ItemOrder } from './ItemOrder';
+import { CreateOrder } from '../../api';
 
 export const CheckoutOrder: FC = () => {
-  const { orderId } = useParams();
   const navigate = useNavigate();
 
-  const { order } = useOrderStore();
+  const { order, createOrder } = useOrderStore();
 
   const totalPrice = order.reduce((sum, item) => sum + item.dish.price * item.quantity, 0);
+
+  const handleCreateOrder = useCallback(async () => {
+    try {
+      const createdData: CreateOrder = {
+        items: order,
+        restaurant: 1,
+      };
+      await createOrder(createdData);
+      navigate('/order-success');
+    } catch (error) {
+      console.error('Error while creating new order', error);
+    }
+  }, [order, createOrder, navigate]);
 
   return (
     <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -32,7 +45,7 @@ export const CheckoutOrder: FC = () => {
             <ArrowBackIos />
           </IconButton>
           <Typography variant="h6" fontWeight="bold">
-            Заказ № {orderId}
+            Ваш заказ
           </Typography>
         </Box>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
@@ -60,6 +73,7 @@ export const CheckoutOrder: FC = () => {
         </Box>
         <Button
           fullWidth
+          onClick={handleCreateOrder}
           variant="outlined"
           size="large"
           disabled={order.length === 0}

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export type ViewMode = 'list' | 'grid';
+export type ViewMode = 'list' | 'grid' | 'table';
 
 interface ViewModeState {
   viewMode: ViewMode;

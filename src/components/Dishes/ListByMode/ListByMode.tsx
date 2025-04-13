@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { ViewMode } from '../../../store';
-import { Dish } from '../../../interfaces';
 import { Typography } from '@mui/material';
 import { Cards } from './Cards';
 import { List } from './List';
 import { Loader } from '../../Loader';
+import { DishesTable } from './Table';
+import { Dish } from '../../../api';
 
 interface ListByModeProps {
   viewMode: ViewMode;
@@ -20,6 +21,8 @@ export const ListByMode: FC<ListByModeProps> = ({ viewMode, isMobile, dishes, is
     <>
       {viewMode === 'list' ? (
         <List dishes={dishes} />
+      ) : viewMode === 'table' ? (
+        <DishesTable dishes={dishes} />
       ) : (
         <Cards isMobile={isMobile} dishes={dishes} />
       )}
