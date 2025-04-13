@@ -22,7 +22,8 @@ export type CreateOrder = {
 
 export class OrdersApi extends apiClient {
   constructor() {
-    super('/orders');
+    const baseUrl = `${process.env.REACT_APP_API_URL}/orders`;
+    super(baseUrl);
   }
 
   public getAll = async () => {
