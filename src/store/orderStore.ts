@@ -1,16 +1,46 @@
 import { create } from 'zustand';
-import { Dish, OrderItem } from '../interfaces';
+import { CreateOrder, Dish, Order, OrderItem, OrdersApi } from '../api';
 
 interface OrderState {
   order: OrderItem[];
+  orders: Order[];
+  isLoadingOrders: boolean;
   isLoadingOrder: boolean;
   addToOrder: (dish: Dish) => Promise<void>;
   removeFromOrder: (dishId: number) => Promise<void>;
+  createOrder: (data: CreateOrder) => Promise<void>;
+  getAllOrders: () => Promise<Order[]>;
 }
+
+const ordersApi = new OrdersApi();
 
 export const useOrderStore = create<OrderState>((set, get) => ({
   order: [],
+  orders: [],
+  isLoadingOrders: false,
   isLoadingOrder: false,
+  createOrder: async (data) => {
+    set({ isLoadingOrder: true });
+    try {
+      await ordersApi.create(data);
+    } catch (error) {
+      throw error;
+    } finally {
+      set({ isLoadingOrder: false });
+    }
+  },
+  getAllOrders: async () => {
+    set({ isLoadingOrders: true });
+    try {
+      const { data } = await ordersApi.getAll();
+      set({ orders: data });
+      return data;
+    } catch (error) {
+      throw error;
+    } finally {
+      set({ isLoadingOrders: false });
+    }
+  },
   addToOrder: async (dish) => {
     const { order } = get();
     set({ isLoadingOrder: true });

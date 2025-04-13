@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Dish } from '../../../../interfaces';
 import { Box } from '@mui/material';
 import { Item } from './Item';
+import { Dish } from '../../../../api';
 
 interface CardsProps {
   dishes: Dish[];

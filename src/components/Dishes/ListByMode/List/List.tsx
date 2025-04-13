@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { List as MList } from '@mui/material';
-import { Dish } from '../../../../interfaces';
 import { Item } from './Item';
+import { Dish } from '../../../../api';
 
 interface ListProps {
   dishes: Dish[];

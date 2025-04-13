@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Remove } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
-import { Dish } from '../../interfaces';
 import { useOrderStore } from '../../store';
+import { Dish } from '../../api';
 
 interface RemoveFromOrderProps {
   dish: Dish;

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Modal, Box, Typography, IconButton, Portal } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { Dish } from '../../interfaces';
 import { NutritionChips } from '../Dishes/NutritionChips';
+import { Dish } from '../../api';
 
 interface DishModalProps {
   dish: Dish;

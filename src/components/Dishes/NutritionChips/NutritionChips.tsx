@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Box, Chip } from '@mui/material';
-import { Dish } from '../../../interfaces';
+import { Dish } from '../../../api';
 
 interface NutritionChipsProps {
   dish: Dish;

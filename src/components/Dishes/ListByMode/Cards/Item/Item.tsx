@@ -1,12 +1,12 @@
 import { FC, useState } from 'react';
 import { Card, CardActions, CardContent, Typography, Box, Avatar } from '@mui/material';
-import { Dish } from '../../../../../interfaces';
 import { NutritionChips } from '../../../NutritionChips';
 import { PriceDisplay } from '../../../PriceDisplay';
 import { useOrderStore } from '../../../../../store';
 import { AddToOrder } from '../../../../AddToOrder';
 import { RemoveFromOrder } from '../../../../RemoveFromOrder';
 import { DishModal } from '../../../../DishModal';
+import { Dish } from '../../../../../api';
 
 interface ItemProps {
   dish: Dish;

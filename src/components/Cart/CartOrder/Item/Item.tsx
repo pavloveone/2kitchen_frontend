@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { Box, ListItem, ListItemText, Typography } from '@mui/material';
 import { AddToOrder } from '../../../AddToOrder';
 import { formatPrice } from '../../../../utils';
-import { OrderItem } from '../../../../interfaces';
 import { RemoveFromOrder } from '../../../RemoveFromOrder';
+import { OrderItem } from '../../../../api';
 
 interface ItemProps {
   order: OrderItem;
