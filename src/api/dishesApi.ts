@@ -26,6 +26,9 @@ export interface ModificationDish {
 }
 
 export class DishesApi extends apiClient {
+  // constructor() {
+  //   super('/dishes');
+  // }
   constructor() {
     const baseUrl = `${process.env.REACT_APP_API_URL}/dishes`;
     super(baseUrl);
