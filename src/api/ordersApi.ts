@@ -22,7 +22,7 @@ export type CreateOrder = {
 
 export class OrdersApi extends apiClient {
   constructor() {
-    const baseUrl = `${process.env.REACT_APP_API_URL}/orders`;
+    const baseUrl = `${process.env.REACT_APP_API_URL ?? 'http://127.0.0.1:8080'}/orders`;
     super(baseUrl);
   }
 

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { immer } from 'zustand/middleware/immer';
 import { Dish, DishesApi, ModificationDish } from '../api';
 
 interface DishesState {
@@ -10,31 +11,33 @@ interface DishesState {
 
 const dishesApi = new DishesApi();
 
-export const useDishStore = create<DishesState>((set, get) => ({
-  dishes: [],
-  isLoadingDishes: false,
-  loadDishes: async () => {
-    try {
+export const useDishStore = create<DishesState>()(
+  immer((set, get) => ({
+    dishes: [],
+    isLoadingDishes: false,
+    loadDishes: async () => {
+      try {
+        set({ isLoadingDishes: true });
+        const { data } = await dishesApi.getAll();
+        set({ dishes: data });
+      } catch (error) {
+        throw error;
+      } finally {
+        set({ isLoadingDishes: false });
+      }
+    },
+    addDish: async (data) => {
+      const { loadDishes } = get();
       set({ isLoadingDishes: true });
-      const { data } = await dishesApi.getAll();
-      set({ dishes: data });
-    } catch (error) {
-      throw error;
-    } finally {
-      set({ isLoadingDishes: false });
-    }
-  },
-  addDish: async (data) => {
-    const { loadDishes } = get();
-    set({ isLoadingDishes: true });
 
-    try {
-      await dishesApi.create(data);
-      await loadDishes();
-    } catch (error) {
-      throw error;
-    } finally {
-      set({ isLoadingDishes: false });
-    }
-  },
-}));
+      try {
+        await dishesApi.create(data);
+        await loadDishes();
+      } catch (error) {
+        throw error;
+      } finally {
+        set({ isLoadingDishes: false });
+      }
+    },
+  })),
+);
