@@ -11,7 +11,7 @@ export const Menu: FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const navigate = useNavigate();
 
-  const { viewMode } = useViewModeStore((state) => ({ viewMode: state.viewMode }));
+  const { viewMode } = useViewModeStore();
 
   const handleCheckout = useCallback(() => {
     navigate(`/checkout`);

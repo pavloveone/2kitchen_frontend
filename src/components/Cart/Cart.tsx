@@ -12,7 +12,7 @@ interface CartProps {
 
 export const Cart: FC<CartProps> = ({ isMobile, onCheckout }) => {
   const theme = useTheme();
-  const { order } = useOrderStore((state) => ({ order: state.order }));
+  const { order } = useOrderStore();
 
   const total = useMemo(
     () => order.reduce((sum, item) => sum + item.dish.price * item.quantity, 0),

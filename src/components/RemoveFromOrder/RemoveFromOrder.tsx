@@ -9,9 +9,7 @@ interface RemoveFromOrderProps {
 }
 
 export const RemoveFromOrder: FC<RemoveFromOrderProps> = ({ dish }) => {
-  const { removeFromOrder } = useOrderStore((state) => ({
-    removeFromOrder: state.removeFromOrder,
-  }));
+  const { removeFromOrder } = useOrderStore();
   return (
     <IconButton size="small" onClick={() => removeFromOrder(dish.id)}>
       <Remove fontSize="small" />

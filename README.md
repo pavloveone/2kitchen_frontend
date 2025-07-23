@@ -36,19 +36,15 @@
 
 ## 📸 Screenshots
 
-> ℹ️ _To be added by the author. Recommended screenshots:_
+1. **Mobile View** responsive layout with vertical menu
+2. **Desktop View** grid of dishes and side-by-side cart
+3. **Admin Dashboard Analytics** charts and revenue stats
+4. **Combined View** dishes panel with active cart state
 
-1. 📱 **Mobile View** of the menu (smartphone width)
-2. 💻 **Desktop View** with grid of dishes
-3. 📊 (When ready) **Admin Dashboard Analytics** – charts, graphs
-4. 🧭 (Optional) Navigation / Header / Interactions (e.g., add to cart)
-
-Place images here using:
-
-```md
-![Mobile view](./screenshots/mobile.png)
-![Desktop view](./screenshots/desktop.png)
-```
+![Mobile view](screenshots/mobile.png)
+![Desktop view](screenshots/desktop.png)
+![Admin analytics](screenshots/admin_analytics.png)
+![Dishes and cart](screenshots/dishes_and_cart)
 
 ---
 
@@ -69,6 +65,7 @@ npm run start
 
 ## 📌 Roadmap
 
+- [ ] Add frontend authentication (login/signup with session or token)
 - [ ] Create design system / custom UI-kit
 - [ ] Add cart functionality + order confirmation
 - [ ] Implement waiter call + request bill

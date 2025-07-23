@@ -11,10 +11,7 @@ export const AdminPanel = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [showForm, setShowForm] = useState(false);
 
-  const { getAllOrders, orders } = useOrderStore((state) => ({
-    getAllOrders: state.getAllOrders,
-    orders: state.orders,
-  }));
+  const { getAllOrders, orders } = useOrderStore();
 
   const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
     setSelectedTab(newValue);
