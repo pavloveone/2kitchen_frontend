@@ -23,13 +23,17 @@ export const OrdersTable: React.FC<OrdersTableProps> = ({ orders }) => {
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const [openIds, setOpenIds] = useState<number[]>([]);
 
-  const handleSelect = useCallback((id: number) => {
-    setSelectedIds((prev) => (prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]));
-  }, []);
+  const handleSelect = useCallback(
+    (id: number) =>
+      setSelectedIds((prev) => (prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id])),
+    [],
+  );
 
-  const handleToggleOpen = useCallback((id: number) => {
-    setOpenIds((prev) => (prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]));
-  }, []);
+  const handleToggleOpen = useCallback(
+    (id: number) =>
+      setOpenIds((prev) => (prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id])),
+    [],
+  );
 
   const handleSelectAll = useCallback(() => {
     if (selectedIds.length === orders.length) {

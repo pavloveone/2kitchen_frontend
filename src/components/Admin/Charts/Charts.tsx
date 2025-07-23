@@ -15,6 +15,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { Order, OrderItem } from '../../../api';
+import { formatPrice } from '../../../utils';
 
 type ChartsProps = {
   orders: Order[];
@@ -22,8 +23,6 @@ type ChartsProps = {
 
 // Пастельная палитра
 const COLORS = ['#A0C4FF', '#BDB2FF', '#FFC6FF', '#FFD6A5', '#FDFFB6'];
-
-const formatCurrency = (value: number) => `${value.toFixed(0)} ₽`;
 
 export const Charts: React.FC<ChartsProps> = ({ orders }) => {
   const ordersByDate = useMemo(() => {
@@ -143,7 +142,7 @@ export const Charts: React.FC<ChartsProps> = ({ orders }) => {
             <CartesianGrid strokeDasharray="2 2" stroke="#ccc" />
             <XAxis dataKey="date" tick={{ fontSize: 12 }} />
             <YAxis tick={{ fontSize: 12 }} />
-            <Tooltip formatter={formatCurrency} />
+            <Tooltip formatter={formatPrice} />
             <Bar dataKey="revenue" fill="#A0C4FF" barSize={30} />
           </BarChart>
         </ChartCard>
@@ -164,7 +163,7 @@ export const Charts: React.FC<ChartsProps> = ({ orders }) => {
           <LineChart data={avgReceiptByDate}>
             <XAxis dataKey="date" tick={{ fontSize: 12 }} />
             <YAxis tick={{ fontSize: 12 }} />
-            <Tooltip formatter={formatCurrency} />
+            <Tooltip formatter={formatPrice} />
             <CartesianGrid stroke="#e0e0e0" strokeDasharray="4 4" />
             <Line type="monotone" dataKey="avg" stroke="#FFB703" strokeWidth={1.8} dot={{ r: 3 }} />
           </LineChart>

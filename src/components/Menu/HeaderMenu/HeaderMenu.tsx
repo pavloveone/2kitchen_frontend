@@ -18,8 +18,11 @@ export const HeaderMenu: FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const navigate = useNavigate();
 
-  const { viewMode, setViewMode } = useViewModeStore();
-  const { order } = useOrderStore();
+  const { viewMode, setViewMode } = useViewModeStore((state) => ({
+    viewMode: state.viewMode,
+    setViewMode: state.setViewMode,
+  }));
+  const { order } = useOrderStore((state) => ({ order: state.order }));
 
   const total = useMemo(
     () => order.reduce((sum, item) => sum + item.dish.price * item.quantity, 0),

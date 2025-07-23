@@ -11,7 +11,7 @@ export const Menu: FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const navigate = useNavigate();
 
-  const { viewMode } = useViewModeStore();
+  const { viewMode } = useViewModeStore((state) => ({ viewMode: state.viewMode }));
 
   const handleCheckout = useCallback(() => {
     navigate(`/checkout`);
@@ -40,10 +40,7 @@ export const Menu: FC = () => {
         },
       }}
     >
-      {/* Шапка меню */}
       <HeaderMenu />
-
-      {/* Основное содержимое */}
       <Box
         sx={{
           flex: 1,
@@ -52,9 +49,7 @@ export const Menu: FC = () => {
           flexDirection: isMobile ? 'column' : 'row',
         }}
       >
-        {/* Список блюд */}
         <Dishes viewMode={viewMode} isMobile={isMobile} />
-        {/* Корзина */}
         <Cart isMobile={isMobile} onCheckout={handleCheckout} />
       </Box>
     </Box>
