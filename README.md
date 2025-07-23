@@ -46,8 +46,8 @@
 Place images here using:
 
 ```md
-![Mobile view](./screenshots/mobile.png)
-![Desktop view](./screenshots/desktop.png)
+![Mobile view](screenshots/mobile.png)
+![Mobile view](./screenshots/mobile.png?raw=true)
 ```
 
 ---
