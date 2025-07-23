@@ -22,20 +22,18 @@ export const AdminPanel = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [showForm, setShowForm] = useState(false);
 
-  const { getAllOrders, orders } = useOrderStore();
+  const { getAllOrders, orders } = useOrderStore((state) => ({
+    getAllOrders: state.getAllOrders,
+    orders: state.orders,
+  }));
 
   const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
     setSelectedTab(newValue);
     setShowForm(false);
   };
 
-  const handleOpenDialog = () => {
-    setShowForm(true);
-  };
-
-  const handleCloseDialog = () => {
-    setShowForm(false);
-  };
+  const handleOpenDialog = () => setShowForm(true);
+  const handleCloseDialog = () => setShowForm(false);
 
   const handleLoadOrders = useCallback(async () => {
     try {
