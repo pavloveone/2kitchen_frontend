@@ -9,7 +9,7 @@ interface AddToOrderProps {
 }
 
 export const AddToOrder: FC<AddToOrderProps> = ({ dish }) => {
-  const { addToOrder } = useOrderStore();
+  const { addToOrder } = useOrderStore((state) => ({ addToOrder: state.addToOrder }));
 
   return (
     <IconButton size="small" onClick={() => addToOrder(dish)} color="default">

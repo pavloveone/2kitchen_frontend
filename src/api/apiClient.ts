@@ -3,9 +3,9 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 export class apiClient {
   private client: AxiosInstance;
 
-  constructor(baseUrl: string) {
+  constructor(baseURL: string) {
     this.client = axios.create({
-      baseURL: baseUrl,
+      baseURL,
       headers: {
         'Content-Type': 'application/json',
       },

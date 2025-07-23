@@ -9,7 +9,11 @@ interface DishesProps {
 }
 
 export const Dishes: FC<DishesProps> = ({ isMobile, viewMode }) => {
-  const { loadDishes, dishes, isLoadingDishes } = useDishStore();
+  const { loadDishes, dishes, isLoadingDishes } = useDishStore((state) => ({
+    loadDishes: state.loadDishes,
+    dishes: state.dishes,
+    isLoadingDishes: state.isLoadingDishes,
+  }));
 
   const handleLoadDishes = useCallback(async () => {
     try {
