@@ -45,10 +45,9 @@
 
 Place images here using:
 
-```md
+
 ![Mobile view](screenshots/mobile.png)
 ![Desktop view](https://raw.githubusercontent.com/pavloveone/2kitchen_frontend/master/screenshots/desktop.png)
-```
 
 ---
 
