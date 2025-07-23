@@ -1,16 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import {
-  Box,
-  Tabs,
-  Tab,
-  Button,
-  Stack,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  useTheme,
-} from '@mui/material';
+import { Box, Tabs, Tab, Button, Stack, useTheme } from '@mui/material';
 import { AddDishForm } from './AddDishForm';
 import { Dishes } from '../Dishes';
 import { Orders } from './Orders';
