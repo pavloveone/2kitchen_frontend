@@ -44,7 +44,7 @@
 ![Mobile view](screenshots/mobile.png)
 ![Desktop view](screenshots/desktop.png)
 ![Admin analytics](screenshots/admin_analytics.png)
-![Dishes and cart](screenshots/dishes_and_cart)
+![Dishes and cart](screenshots/dishes_and_cart.png)
 
 ---
 
