@@ -38,13 +38,13 @@
 
 1. **Mobile View** responsive layout with vertical menu
 2. **Desktop View** grid of dishes and side-by-side cart
-3. **Admin Dashboard Analytics** charts and revenue stats
-4. **Combined View** dishes panel with active cart state
+3. **Combined View** dishes panel with active cart state
+4. **Admin Dashboard Analytics** charts and revenue stats
 
 ![Mobile view](screenshots/mobile.png)
 ![Desktop view](screenshots/desktop.png)
+![Dishes and cart](screenshots/dishes_and_cart.png)
 ![Admin analytics](screenshots/admin_analytics.png)
-![Dishes and cart](screenshots/dishes_and_cart)
 
 ---
 
