@@ -45,6 +45,7 @@
 ![Desktop view](screenshots/desktop.png)
 ![Dishes and cart](screenshots/dishes_and_cart.png)
 ![Admin analytics](screenshots/admin_analytics.png)
+
 ---
 
 ## 🚀 Getting Started Locally
