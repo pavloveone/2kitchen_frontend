@@ -67,10 +67,11 @@ npm run start
 
 - [ ] Add frontend authentication (login/signup with session or token)
 - [ ] Create design system / custom UI-kit
-- [ ] Add cart functionality + order confirmation
+- [x] Add cart functionality + order confirmation
 - [ ] Implement waiter call + request bill
-- [ ] Connect to backend API for dish/analytics data
+- [x] Connect to backend API for dish/analytics data
 - [ ] Add E2E tests (Playwright or Cypress)
+- [ ] Add localization
 
 ---
 
@@ -78,9 +79,3 @@ npm run start
 
 Alexander Pavlov  
 [LinkedIn](https://linkedin.com/in/alexander-pavlov-877a422bb/)
-
----
-
-## 📝 License
-
-MIT – free to use and modify.
