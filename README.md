@@ -1,5 +1,7 @@
 # 🍽️ 2kitchen – Restaurant Ordering Frontend
 
+🔗 Backend: [2kitchen_backend GitHub Repo](https://github.com/pavloveone/2kitchen_backend)
+
 **Live Demo:** [https://2kitchen-frontend.vercel.app](https://2kitchen-frontend.vercel.app)
 
 2kitchen is a modern web interface for restaurant ordering. The project allows customers to browse the menu and (in the future) request the bill or call a waiter. For businesses, an admin dashboard is provided to manage dishes, track orders, and view analytics like revenue, order statuses, and most popular items.
